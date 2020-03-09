@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8 mx-auto text-center mt-3">
+                <div class="jumbotron jumbotron-fluid col-12 pt-3 pb-4">
+                    <form action="{{ url_for('edit') }}" class="col-12" method="post">
+                        <h3 class="mb-3">Фразеологизмді жөндеу формасы</h3>
+                        <input class="form-control mt-2 text-left" type="text"
+                               placeholder="Фразеологизмді енгізіңіз"
+                               name="idiom" value="{{ idiom }}">
+                        <input class="form-control mt-2 text-left" type="text" placeholder="Оның мағынасы"
+                               name="value" value="{{ value }}">
+                        <input class="form-control mt-2 text-left" type="text" placeholder="Мысал"
+                               name="example" value="{{ example }}">
+                        <input class="form-control mt-2 text-left" type="text" placeholder="Мүмкін синонимдер"
+                               name="sin" value="{{ sin.replace(' <--> ', ', ') }}">
+                        <input class="form-control mt-2 text-left" type="text" placeholder="Полисимия"
+                               name="pol" value="{{ pol.replace(' <--> ', ', ') }}">
+                        <button type="submit" class="btn btn-success mt-3">Жөндеу</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+{% endblock %}

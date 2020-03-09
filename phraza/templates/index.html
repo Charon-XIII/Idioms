@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-3 text-center">
+        <div class="row">
+            <div class="col-12 mx-auto">
+                <div class="jumbotron jumbotron-fluid pb-4 pt-4">
+                    <div class="container">
+
+                        <h1 class="mt-5">{{ error }}</h1>
+
+                        <h2>{{sentence }}</h2>
+
+                        <h1>{{ warning }}</h1>
+
+
+                        <h1 class="display-4" style="font-size:2em;">{{ example }}</h1>
+                        <br>
+                        <p class="lead" style="">
+                                {{ value }}
+                        </p>
+                        <br>
+                        {% if flag==False %}
+                            <p class="lead" style="">
+                                    {% if pol!='' %}
+                                        Полисемия: {{ pol }}
+                                    {% endif %}
+
+                                    {% if pol!='' and sin!='' %}
+                                    <br>
+                                    {% endif %}
+
+                                    {% if sin!='' %}
+                                       Синонимдер: {{ sin }}
+                                    {% endif %}
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mx-auto text-center mt-3">
+                <a href="{{ url_for('create') }}" class="btn btn-outline-success col-lg-1 mr-2">Жасау</a>
+                <a href="{{ url_for('edit') }}"  class="btn btn-outline-primary col-lg-1">Жөндеу</a>
+                <a href="{{ url_for('delete') }}" class="btn btn-outline-danger col-lg-1 ml-2">Жою</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
